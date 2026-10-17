@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  vertical-align: middle;
+}
+
+.noise-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(#0D111D, #0D111D) padding-box,
+              linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(59, 130, 246, 0.3), rgba(255, 255, 255, 0.02)) border-box;
+  border: 1px solid transparent;
+}
+
+.gradient-text-apple {
+  background: linear-gradient(180deg, #FFFFFF 20%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

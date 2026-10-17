@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Andriansyah — Lead Cloud &amp; Infrastructure Systems Architect</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            monolith: {
+              950: "#06080F",
+              900: "#090C15",
+              850: "#0D111D",
+              800: "#131828",
+              700: "#1E263E",
+              600: "#2B3555",
+            },
+            accent: {
+              blue: "#3B82F6",
+              cobalt: "#2563EB",
+              indigo: "#6366F1",
+              teal: "#06B6D4",
+              emerald: "#10B981"
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'glow-cobalt': '0 0 50px -10px rgba(59, 130, 246, 0.25)',
+            'glow-subtle': '0 20px 40px -15px rgba(0, 0, 0, 0.5)',
+            'apple-card': '0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 40px -20px rgba(0, 0, 0, 0.8)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-monolith-950 text-slate-100 font-sans antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen relative noise-bg overflow-x-hidden">
+<!-- Ambient Light Orbs -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] bg-gradient-to-b from-blue-600/15 via-indigo-600/5 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed top-1/3 -right-60 w-[550px] h-[550px] bg-accent-blue/10 blur-[120px] pointer-events-none -z-10"></div>
+<!-- Top Executive Navigation Bar -->
+<header class="sticky top-0 z-50 backdrop-blur-xl bg-monolith-950/80 border-b border-white/[0.08] transition-all">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-white text-lg">dns</span>
+</div>
+<div>
+<span class="font-display font-bold tracking-tight text-white text-sm sm:text-base">ANDRIANSYAH</span>
+<span class="hidden sm:inline-block text-[11px] font-mono text-slate-400 ml-2 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06]">DevOps • Network • Sysadmin • Infrastructure</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-7 text-xs font-medium text-slate-300">
+<a class="hover:text-white transition-colors" href="#overview" data-i18n="nav.overview">Overview</a>
+<a class="hover:text-white transition-colors" href="#experience" data-i18n="nav.experience">Experience</a>
+<a class="hover:text-white transition-colors" href="#architecture" data-i18n="nav.architecture">Architecture &amp; Stack</a>
+<a class="hover:text-white transition-colors" href="#certifications" data-i18n="nav.credentials">Credentials</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span id="monolith-clock">2026-10-16 00:00:00 UTC</span>
+</div>
+<div class="hidden xl:flex items-center gap-2 text-xs font-mono text-slate-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-full">
+<span>LATENCY:</span>
+<span id="stat-latency" class="text-blue-400 font-semibold">11ms</span>
+</div>
+<a class="text-xs font-semibold px-4 py-2 rounded-full bg-white text-monolith-950 hover:bg-slate-200 transition-all shadow-md shadow-white/10 flex items-center gap-1.5" href="#contact">
+<span data-i18n="nav.inquire">Inquire</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<button id="lang-toggle" onclick="toggleLang()" class="text-xs font-bold px-3 py-2 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-slate-200 transition-all flex items-center gap-1.5 font-mono">
+<span class="material-symbols-outlined text-sm">translate</span>
+<span id="lang-label">EN</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 space-y-20 sm:space-y-28">
+<!-- HERO SECTION: Executive Tech Monolith -->
+<section class="relative pt-4 sm:pt-8" id="overview">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left: Corporate Precision Headline & Mission Statement (Cols 7) -->
+<div class="lg:col-span-7 space-y-6 sm:space-y-8">
+<div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-slate-300">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-blue opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-accent-blue"></span>
+</span>
+<span class="tracking-wider uppercase text-[11px] text-blue-300 font-semibold" data-i18n="hero.badge">Enterprise Systems Dossier</span>
+<span class="text-slate-600">|</span>
+<span class="text-slate-400">Jakarta &amp; Bekasi, ID</span>
+</div>
+<div class="space-y-3">
+<h1 class="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.12]">
+              <span data-i18n="hero.headlinePrefix">Architecting</span> <br class="hidden sm:inline"/>
+<span class="gradient-text-apple" data-i18n="hero.headlineAccent">Resilient Cloud</span> <br/>
+              <span data-i18n="hero.headlineSuffix">Infrastructure.</span>
+            </h1>
+<p class="text-base sm:text-lg text-slate-300/90 font-normal leading-relaxed max-w-2xl pt-2" data-i18n="hero.bio">
+              Insinyur Sistem &amp; Keamanan Jaringan berpengalaman merancang ekosistem komputasi berkinerja tinggi. Mengintegrasikan perimeter keamanan fisik enterprise, virtualisasi multi-node Proxmox, orkestrasi Kubernetes terdistribusi, serta automasi GitOps zero-downtime.
+            </p>
+</div>
+<!-- CTAs & Contact Quick Access -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2" href="#contact">
+<span class="material-symbols-outlined text-base">mail</span>
+<span data-i18n="hero.ctaContact">Hubungi Langsung</span>
+</a>
+<a class="px-5 py-3.5 rounded-xl bg-monolith-850 hover:bg-monolith-800 border border-white/[0.12] text-white font-medium text-sm transition-all flex items-center gap-2" download="CV_Andriansyah.pdf" href="assets/docs/CV_Andriansyah.pdf">
+<span class="material-symbols-outlined text-base">download</span>
+<span data-i18n="hero.ctaDownload">Download CV PDF</span>
+</a>
+<a class="px-5 py-3.5 rounded-xl bg-monolith-850 hover:bg-monolith-800 border border-white/[0.12] text-white font-medium text-sm transition-all flex items-center gap-2" href="https://linkedin.com/in/andrian-syah9012" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">north_east</span>
+<span data-i18n="hero.ctaLinkedin">Profil LinkedIn</span>
+</a>
+<a class="px-5 py-3.5 rounded-xl bg-monolith-850 hover:bg-monolith-800 border border-white/[0.12] text-white font-medium text-sm transition-all flex items-center gap-2" href="https://github.com/sudo-p3rziv4l" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">code</span>
+<span>GitHub</span>
+</a>
+<a class="px-4 py-3.5 rounded-xl text-slate-400 hover:text-white font-mono text-xs transition-colors flex items-center gap-1.5" href="tel:087899481932">
+<span class="material-symbols-outlined text-sm">phone_iphone</span>
+<span>+62 878-9948-1932</span>
+</a>
+</div>
+<!-- Trust Indicators / Micro Tags -->
+<div class="pt-4 border-t border-white/[0.08] flex flex-wrap gap-y-2 gap-x-6 text-xs text-slate-400 font-mono">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-400 text-base">verified_user</span>
+<span>Carrier-Grade Perimeter Hardening</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-blue-400 text-base">deployed_code</span>
+<span>Declarative GitOps Delivery</span>
+</div>
+</div>
+</div>
+<!-- Right: Modern Executive Portrait Card (Cols 5) -->
+<div class="lg:col-span-5 relative flex justify-center">
+<!-- Outer Floating Monolith Card -->
+<div class="w-full max-w-sm sm:max-w-md relative rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent border border-white/[0.15] shadow-apple-card backdrop-blur-2xl">
+<!-- Top Card Header HUD -->
+<div class="flex items-center justify-between px-3 py-2 text-xs font-mono text-slate-400 border-b border-white/[0.06] mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="text-white font-medium text-[11px]">ACTIVE PRODUCTION OPERATOR</span>
+</div>
+<span class="text-[10px] text-slate-500">ID: AS-JKT-0912</span>
+</div>
+<!-- Portrait Frame -->
+<div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-monolith-900 border border-white/[0.08] shadow-inner group">
+<img alt="Andriansyah - Lead Cloud &amp; Infrastructure Systems Architect" class="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.03] group-hover:scale-105 transition-transform duration-700 ease-out" src="assets/images/andrian.jpg"/>
+<!-- Subtle bottom gradient vignette -->
+<div class="absolute inset-0 bg-gradient-to-t from-monolith-950 via-transparent to-transparent opacity-60"></div>
+<!-- Floating Bottom Floating Badge (Stripe/Apple aesthetic) -->
+<div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-monolith-900/90 backdrop-blur-xl border border-white/[0.12] shadow-xl flex items-center justify-between">
+<div>
+<div class="text-sm font-bold text-white font-display">ANDRIANSYAH</div>
+<div class="text-[11px] text-blue-400 font-mono">DevOps &amp; Network Architect</div>
+</div>
+<div class="h-8 w-8 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined text-base">verified</span>
+</div>
+</div>
+</div>
+<!-- Secondary micro-metrics below image -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-1 text-center font-mono">
+<div class="p-2 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+<div class="text-[10px] text-slate-500 uppercase">Focus</div>
+<div class="text-xs font-semibold text-slate-200 mt-0.5">SRE / CI/CD</div>
+</div>
+<div class="p-2 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+<div class="text-[10px] text-slate-500 uppercase">Perimeter</div>
+<div class="text-xs font-semibold text-slate-200 mt-0.5">TECH Enthusiast</div>
+</div>
+<div class="p-2 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+<div class="text-[10px] text-slate-500 uppercase">Status</div>
+<div class="text-xs font-semibold text-emerald-400 mt-0.5">Available</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- HORIZONTAL STAT BAR: Monolith Precision Metric Strip -->
+<div class="mt-16 sm:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+<div class="gradient-border rounded-2xl p-5 sm:p-6 bg-monolith-850/60 backdrop-blur-md shadow-glow-subtle">
+<div class="flex items-center justify-between mb-3 text-slate-400">
+<span class="text-xs font-mono tracking-wider uppercase text-slate-400" data-i18n="stats.expLabel">Experience Track</span>
+<span class="material-symbols-outlined text-blue-400 text-lg">history</span>
+</div>
+<div class="text-2xl sm:text-3xl font-bold font-display text-white" data-i18n="stats.expValue">5+ Tahun</div>
+<div class="text-xs text-slate-400 mt-1" data-i18n="stats.expSub">Infrastruktur &amp; Telekomunikasi</div>
+</div>
+<div class="gradient-border rounded-2xl p-5 sm:p-6 bg-monolith-850/60 backdrop-blur-md shadow-glow-subtle">
+<div class="flex items-center justify-between mb-3 text-slate-400">
+<span class="text-xs font-mono tracking-wider uppercase text-slate-400" data-i18n="stats.sloLabel">Service Reliability</span>
+<span class="material-symbols-outlined text-emerald-400 text-lg">task_alt</span>
+</div>
+<div class="text-2xl sm:text-3xl font-bold font-display text-white">99.98%</div>
+<div class="text-xs text-slate-400 mt-1" data-i18n="stats.sloSub">Target Production SLO &amp; MTTR</div>
+</div>
+<div class="gradient-border rounded-2xl p-5 sm:p-6 bg-monolith-850/60 backdrop-blur-md shadow-glow-subtle">
+<div class="flex items-center justify-between mb-3 text-slate-400">
+<span class="text-xs font-mono tracking-wider uppercase text-slate-400" data-i18n="stats.networkLabel">Core Network</span>
+<span class="material-symbols-outlined text-indigo-400 text-lg">router</span>
+</div>
+<div class="text-2xl sm:text-3xl font-bold font-display text-white">Enterprise</div>
+<div class="text-xs text-slate-400 mt-1" data-i18n="stats.networkSub">MikroTik, Fortigate &amp; VLAN Routing</div>
+</div>
+<div class="gradient-border rounded-2xl p-5 sm:p-6 bg-monolith-850/60 backdrop-blur-md shadow-glow-subtle">
+<div class="flex items-center justify-between mb-3 text-slate-400">
+<span class="text-xs font-mono tracking-wider uppercase text-slate-400" data-i18n="stats.gitopsLabel">Deployment Logic</span>
+<span class="material-symbols-outlined text-teal-400 text-lg">all_inclusive</span>
+</div>
+<div class="text-2xl sm:text-3xl font-bold font-display text-white">GitOps</div>
+<div class="text-xs text-slate-400 mt-1" data-i18n="stats.gitopsSub">Automated Declarative Sync</div>
+</div>
+</div>
+</section>
+<!-- SECTION: PROFESSIONAL CAREER TIMELINE & ARCHITECTURE (Bento Grid) -->
+<section class="space-y-8" id="experience">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/[0.08] pb-6">
+<div>
+<span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold" data-i18n="exp.sectionTag">// TRACK RECORD</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-white font-display mt-1 tracking-tight" data-i18n="exp.title">Riwayat Karir &amp; Eksekusi Lapangan</h2>
+</div>
+<p class="text-xs sm:text-sm text-slate-400 max-w-md font-sans" data-i18n="exp.subtitle">
+          Rekam jejak kepemimpinan infrastruktur, transformasi sistem mission-critical, dan mitigasi bottleneck konektivitas enterprise.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Experience 1: PT DIKA DevOps Engineer (Lead Card - Cols 7) -->
+<div class="lg:col-span-7 gradient-border rounded-3xl p-6 sm:p-8 bg-monolith-850/80 backdrop-blur-xl shadow-apple-card space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.06] pb-4">
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="text-lg sm:text-xl font-bold text-white font-display">DevOps Engineer</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-400 text-[11px] font-mono font-medium">PROD / CURRENT</span>
+</div>
+<div class="text-sm text-slate-400 font-medium mt-0.5">PT DIKA (Duta Inti Daya Cipta)</div>
+</div>
+<div class="text-xs font-mono text-slate-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-lg self-start sm:self-auto" data-i18n="exp.dikaPeriod">
+              Jan 2023 — Sekarang
+            </div>
+</div>
+<!-- High-impact bullet breakdown -->
+<div class="space-y-3.5 text-sm text-slate-300 leading-relaxed">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 text-lg mt-0.5 shrink-0">check_circle</span>
+<span data-i18n="exp.dikaBullet1"><strong>CI/CD Pipelines:</strong> Merancang dan mengimplementasikan pipeline continuous integration &amp; continuous deployment menyeluruh berbasis <strong>GitHub Actions</strong> untuk memangkas intervensi manual saat build image kontainer, linting, testing, dan deployment bertingkat.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 text-lg mt-0.5 shrink-0">check_circle</span>
+<span data-i18n="exp.dikaBullet2"><strong>Containerization &amp; Portability:</strong> Menstandarisasi aplikasi monolitik dan microservices ke dalam <strong>Docker Container</strong> teroptimasi, menjamin reliabilitas dan konsistensi mutlak antara lingkungan staging dan produksi.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 text-lg mt-0.5 shrink-0">check_circle</span>
+<span data-i18n="exp.dikaBullet3"><strong>Kubernetes &amp; GitOps:</strong> Mengorkestrasi cluster <strong>Kubernetes</strong> dengan continuous delivery berbasis GitOps menggunakan <strong>ArgoCD</strong> guna memastikan declarative state synchronization tanpa down-time.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 text-lg mt-0.5 shrink-0">check_circle</span>
+<span data-i18n="exp.dikaBullet4"><strong>Observability Terpadu:</strong> Menghubungkan metrik telemetry melalui <strong>Prometheus</strong> serta membangun visualization dashboard analitis interaktif di <strong>Grafana</strong> untuk deteksi anomali server real-time.</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-400 text-lg mt-0.5 shrink-0">check_circle</span>
+<span data-i18n="exp.dikaBullet5"><strong>Infrastruktur Telemarketing (Zero-to-One):</strong> Insinyur kunci perancang infrastruktur telemarketing dari scratch — meliputi topologi fisik, isolasi VLAN, alokasi bandwidth, hingga routing microservices.</span>
+</div>
+</div>
+<!-- Technologies Chips -->
+<div class="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2 text-xs font-mono">
+<span class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-300 border border-blue-500/20">GitHub Actions</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/[0.08]">Kubernetes</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/[0.08]">Docker</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/[0.08]">ArgoCD</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/[0.08]">Prometheus &amp; Grafana</span>
+<span class="px-2.5 py-1 rounded-lg bg-white/[0.04] text-slate-300 border border-white/[0.08]">Proxmox VE</span>
+</div>
+</div>
+<!-- Experience 2 & 3: Network Engineer & Pengajar (Stacked Cards - Cols 5) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- PT DIKA - Network Engineer -->
+<div class="gradient-border rounded-3xl p-6 bg-monolith-850/80 backdrop-blur-xl shadow-apple-card space-y-4">
+<div class="flex items-center justify-between border-b border-white/[0.06] pb-3">
+<div>
+<h3 class="text-base sm:text-lg font-bold text-white font-display">Network Engineer</h3>
+<div class="text-xs text-slate-400 font-medium">PT DIKA</div>
+</div>
+<span class="text-[11px] font-mono text-slate-400 bg-white/[0.03] px-2.5 py-1 rounded-lg border border-white/[0.08]">
+                Okt 2024 — Ags 2025
+              </span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="exp.dikaNetDesc">
+              Memimpin audit redesain topologi jaringan eksisting, mengoptimasi alur routing table, serta memasang perimeter security <strong>Fortigate</strong> (firewall policies, IPS filtration) dan segmentasi VLAN antar-divisi guna mereduksi ancaman pergerakan lateral.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1 text-[11px] font-mono">
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">Fortigate IPS</span>
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">VLAN Isolation</span>
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">MikroTik RouterOS</span>
+</div>
+</div>
+<!-- SMK Catur Global - Pengajar Teknis -->
+<div class="gradient-border rounded-3xl p-6 bg-monolith-850/80 backdrop-blur-xl shadow-apple-card space-y-4">
+<div class="flex items-center justify-between border-b border-white/[0.06] pb-3">
+<div>
+<h3 class="text-base sm:text-lg font-bold text-white font-display" data-i18n="exp.caturTitle">Pengajar Teknis (TKJ)</h3>
+<div class="text-xs text-slate-400 font-medium">SMK Catur Global</div>
+</div>
+<span class="text-[11px] font-mono text-slate-400 bg-white/[0.03] px-2.5 py-1 rounded-lg border border-white/[0.08]" data-i18n="exp.caturPeriod">
+                Ags 2019 — Okt 2024
+              </span>
+</div>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="exp.caturDesc">
+              Membimbing ratusan siswa dalam simulasi dan lab riil switching, routing MikroTik, serta mengarsiteki sistem high-load <strong>Moodle CBT</strong> yang bertahan dari ribuan simultaneous request siswa tanpa freeze saat ujian nasional.
+            </p>
+<div class="flex flex-wrap gap-1.5 pt-1 text-[11px] font-mono">
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">Moodle CBT Tuning</span>
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">Campus WLAN/LAN</span>
+<span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-300 border border-white/[0.06]">Technical Mentorship</span>
+</div>
+</div>
+<div class="space-y-2">
+<!-- Academic 1: Universitas Indraprasta PGRI -->
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex items-center justify-between text-xs">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-base">school</span>
+</div>
+<div>
+<div class="text-white font-semibold">Universitas Indraprasta PGRI</div>
+<div class="text-slate-400 font-mono text-[11px]" data-i18n="edu.unindra">Teknik Informatika (Sep 2019 — Okt 2020)</div>
+</div>
+</div>
+<span class="text-slate-500 font-mono text-[11px]" data-i18n="edu.higher">Perguruan Tinggi</span>
+</div>
+<!-- Academic 2: SMK Catur Global -->
+<div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex items-center justify-between text-xs">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-base">domain</span>
+</div>
+<div>
+<div class="text-white font-semibold">SMK Catur Global</div>
+<div class="text-slate-400 font-mono text-[11px]" data-i18n="edu.smk">Teknik Komputer dan Jaringan (Jul 2017 — Jun 2019)</div>
+</div>
+</div>
+<span class="text-slate-500 font-mono text-[11px]" data-i18n="edu.vocational">Pendidikan Kejuruan</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: COMPREHENSIVE ARCHITECTURE & SKILLS MATRIX -->
+<section class="space-y-8" id="architecture">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/[0.08] pb-6">
+<div>
+<span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold" data-i18n="skills.sectionTag">// CORE CAPABILITIES</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-white font-display mt-1 tracking-tight" data-i18n="skills.title">Keahlian Sistem &amp; Arsitektur Cloud</h2>
+</div>
+<p class="text-xs sm:text-sm text-slate-400 max-w-md font-sans" data-i18n="skills.subtitle">
+          Fondasi teknis holistik mencakup level hardware fisik, hypervisor, orkestrasi container, hingga audit keamanan.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Skill 1 -->
+<div class="gradient-border rounded-2xl p-6 bg-monolith-850/60 backdrop-blur-md shadow-apple-card space-y-4">
+<div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined text-xl">sync_alt</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-white font-display">CI/CD &amp; GitOps</h3>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Automasi pipeline deployment zero-touch untuk delivery kode cepat dan aman.</p>
+</div>
+<div class="space-y-1.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-slate-300">
+<div class="flex items-center justify-between">
+<span>GitHub Actions</span>
+<span class="text-blue-400 font-bold">95%</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-[95%] rounded-full"></div>
+</div>
+<div class="text-[11px] text-slate-500 pt-1">ArgoCD, Declarative Sync, Helm</div>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="gradient-border rounded-2xl p-6 bg-monolith-850/60 backdrop-blur-md shadow-apple-card space-y-4">
+<div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+<span class="material-symbols-outlined text-xl">hub</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-white font-display">Containers &amp; K8s</h3>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Orkestrasi kontainer terisolasi dengan manajemen load balancing teruji.</p>
+</div>
+<div class="space-y-1.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-slate-300">
+<div class="flex items-center justify-between">
+<span>Kubernetes / Docker</span>
+<span class="text-indigo-400 font-bold">92%</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-indigo-500 h-full w-[92%] rounded-full"></div>
+</div>
+<div class="text-[11px] text-slate-500 pt-1">Ingress Controller, Pod Autoscaling</div>
+</div>
+</div>
+<!-- Skill 3 -->
+<div class="gradient-border rounded-2xl p-6 bg-monolith-850/60 backdrop-blur-md shadow-apple-card space-y-4">
+<div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+<span class="material-symbols-outlined text-xl">security</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-white font-display">Perimeter &amp; Routing</h3>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Pertahanan lapis pertama firewall enterprise dan segmentasi jaringan ketat.</p>
+</div>
+<div class="space-y-1.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-slate-300">
+<div class="flex items-center justify-between">
+<span>Fortigate &amp; MikroTik</span>
+<span class="text-cyan-400 font-bold">94%</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-cyan-500 h-full w-[94%] rounded-full"></div>
+</div>
+<div class="text-[11px] text-slate-500 pt-1">IPS Filtering, BGP/OSPF, VLANs</div>
+</div>
+</div>
+<!-- Skill 4 -->
+<div class="gradient-border rounded-2xl p-6 bg-monolith-850/60 backdrop-blur-md shadow-apple-card space-y-4">
+<div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-xl">query_stats</span>
+</div>
+<div>
+<h3 class="text-base font-bold text-white font-display">Observability &amp; Linux</h3>
+<p class="text-xs text-slate-400 mt-1 leading-relaxed">Monitoring proaktif 24/7 dan pengerasan sistem operasi server Linux.</p>
+</div>
+<div class="space-y-1.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-slate-300">
+<div class="flex items-center justify-between">
+<span>Prometheus / Grafana</span>
+<span class="text-emerald-400 font-bold">90%</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[90%] rounded-full"></div>
+</div>
+<div class="text-[11px] text-slate-500 pt-1">Proxmox VE, Server Hardening, Alerting</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: CREDENTIALS & EDUCATION -->
+<section class="space-y-8" id="certifications">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/[0.08] pb-6">
+<div>
+<span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold" data-i18n="cert.sectionTag">// CREDENTIAL VERIFICATION</span>
+<h2 class="text-2xl sm:text-3xl font-bold text-white font-display mt-1 tracking-tight" data-i18n="cert.title">Sertifikasi &amp; Lisensi Resmi</h2>
+</div>
+<p class="text-xs sm:text-sm text-slate-400 max-w-md font-sans" data-i18n="cert.subtitle">
+          Kredensial industri terverifikasi secara global oleh penyedia perangkat jaringan dan keamanan terkemuka.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Cert 1: MTCNA -->
+<div onclick="showCert('mtcna')" class="gradient-border rounded-2xl p-6 bg-monolith-850/70 hover:bg-monolith-800/80 backdrop-blur-md shadow-apple-card flex flex-col justify-between cursor-pointer transition-all group">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">OFFICIALLY VERIFIED</span>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-blue-400 transition-colors text-lg">verified</span>
+</div>
+<h3 class="text-xl font-bold text-white font-display group-hover:text-blue-400 transition-colors">MTCNA</h3>
+<p class="text-xs text-slate-400 font-medium">MikroTik Certified Network Associate</p>
+<p class="text-xs text-slate-400/80 leading-relaxed pt-1" data-i18n="cert.mtcnaDesc">Kompetensi tingkat profesional dalam konfigurasi dasar RouterOS, subnetting, bandwidth management, firewall NAT, dan wireless routing.</p>
+</div>
+<div class="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+<span>Issuer: MikroTikls SIA</span>
+<span class="text-blue-400 font-semibold group-hover:underline flex items-center gap-1">Detail <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Cert 2: MTCRE -->
+<div onclick="showCert('mtcre')" class="gradient-border rounded-2xl p-6 bg-monolith-850/70 hover:bg-monolith-800/80 backdrop-blur-md shadow-apple-card flex flex-col justify-between cursor-pointer transition-all group">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">OFFICIALLY VERIFIED</span>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-blue-400 transition-colors text-lg">verified</span>
+</div>
+<h3 class="text-xl font-bold text-white font-display group-hover:text-blue-400 transition-colors">MTCRE</h3>
+<p class="text-xs text-slate-400 font-medium">MikroTik Certified Routing Engineer</p>
+<p class="text-xs text-slate-400/80 leading-relaxed pt-1" data-i18n="cert.mtcreDesc">Penguasaan mendalam protokol routing lanjutan OSPF, multiple area routing, VPN tunnel encapsulation (EoIP, IPIP, PPTP, L2TP), dan routing filter.</p>
+</div>
+<div class="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+<span>Issuer: MikroTikls SIA</span>
+<span class="text-blue-400 font-semibold group-hover:underline flex items-center gap-1">Detail <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Cert 3: FORTIGATE NSE4 -->
+<div onclick="showCert('nse4')" class="gradient-border rounded-2xl p-6 bg-monolith-850/70 hover:bg-monolith-800/80 backdrop-blur-md shadow-apple-card flex flex-col justify-between cursor-pointer transition-all group">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">ENTERPRISE TRACK</span>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-blue-400 transition-colors text-lg">verified</span>
+</div>
+<h3 class="text-xl font-bold text-white font-display group-hover:text-blue-400 transition-colors">Fortigate NSE4</h3>
+<p class="text-xs text-slate-400 font-medium">Fortinet Network Security Expert 4</p>
+<p class="text-xs text-slate-400/80 leading-relaxed pt-1" data-i18n="cert.nse4Desc">Keahlian arsitektur keamanan gateway korporat: deployment FortiOS, inspeksi traffic SSL terenkripsi, filter antivirus perimeter, serta high-availability failover cluster.</p>
+</div>
+<div class="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-500">
+<span>Issuer: Fortinet NSE Institute</span>
+<span class="text-blue-400 font-semibold group-hover:underline flex items-center gap-1">Detail <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</div>
+
+<!-- Language Fluency Bar -->
+<div class="gradient-border rounded-2xl p-6 bg-monolith-850/60 backdrop-blur-md grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs font-mono">
+<span class="text-white font-bold font-sans flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>Bahasa Indonesia</span>
+</span>
+<span class="text-emerald-400 font-semibold" data-i18n="lang.idLevel">Penutur Asli (Native)</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-full rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs font-mono">
+<span class="text-white font-bold font-sans flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-blue-400"></span>
+<span>English</span>
+</span>
+<span class="text-blue-400 font-semibold" data-i18n="lang.enLevel">Tingkat Profesional (Professional)</span>
+</div>
+<div class="w-full bg-monolith-950 h-1.5 rounded-full overflow-hidden">
+<div class="bg-blue-400 h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: DIRECT CONTACT & INITIATION (Apple/Stripe Executive CTA) -->
+<section class="relative" id="contact">
+<div class="gradient-border rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-monolith-850 via-monolith-900 to-monolith-950 backdrop-blur-2xl shadow-glow-cobalt">
+<div class="max-w-3xl mx-auto text-center space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-mono text-blue-400">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<span>DIRECT ENGAGEMENT // OPEN FOR EXECUTIVE DISCUSSIONS</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-bold font-display text-white tracking-tight" data-i18n="contact.title">
+            Siap Membangun Infrastruktur Skala Enterprise?
+          </h2>
+<p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans max-w-xl mx-auto" data-i18n="contact.desc">
+            Terbuka untuk diskusi posisi <strong>DevOps Engineer</strong>, <strong>Site Reliability Engineer (SRE)</strong>, <strong>Cloud Infrastructure Architect</strong>, maupun konsultasi arsitektur jaringan high-availability.
+          </p>
+<!-- Interactive Action Buttons -->
+<div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-monolith-950 font-bold text-sm hover:bg-slate-200 transition-all shadow-xl shadow-white/10 flex items-center justify-center gap-2" href="mailto:andrisyh9012@gmail.com">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span data-i18n="contact.emailBtn">Kirim Email Langsung (andrisyh9012@gmail.com)</span>
+</a>
+<a class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.15] text-white font-medium text-sm transition-all flex items-center justify-center gap-2" href="https://linkedin.com/in/andrian-syah9012" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-lg">north_east</span>
+<span data-i18n="contact.linkedinBtn">Terhubung di LinkedIn</span>
+</a>
+<a class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.15] text-white font-medium text-sm transition-all flex items-center justify-center gap-2" href="https://github.com/sudo-p3rziv4l" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-lg">code</span>
+<span>GitHub (@sudo-p3rziv4l)</span>
+</a>
+<a class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.15] text-white font-medium text-sm transition-all flex items-center justify-center gap-2" download="CV_Andriansyah.pdf" href="assets/docs/CV_Andriansyah.pdf">
+<span class="material-symbols-outlined text-lg">download</span>
+<span data-i18n="contact.downloadBtn">Download CV PDF</span>
+</a>
+</div>
+<!-- Copy Quick Actions -->
+<div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+<button type="button" onclick="copyText('andrisyh9012@gmail.com', this)" class="px-4 py-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-slate-300 font-mono text-xs flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm text-blue-400">content_copy</span>
+<span>Copy Email</span>
+</button>
+<button type="button" onclick="copyText('087899481932', this)" class="px-4 py-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-slate-300 font-mono text-xs flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm text-blue-400">content_copy</span>
+<span>Copy No. HP (0878-9948-1932)</span>
+</button>
+</div>
+
+<!-- Interactive Monolith CLI Simulator -->
+<div class="mt-8 text-left max-w-2xl mx-auto rounded-2xl bg-monolith-950/90 border border-white/[0.12] p-4 font-mono text-xs shadow-2xl">
+<div class="flex items-center justify-between border-b border-white/[0.08] pb-2 mb-3 text-[11px] text-slate-400">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+<span class="ml-2 font-mono text-slate-400">terminal://cloud-architect.internal</span>
+</div>
+<div class="flex gap-2">
+<button type="button" onclick="runCliCommand('help')" class="hover:text-blue-400 underline text-[10px]">help</button>
+<button type="button" onclick="runCliCommand('status')" class="hover:text-blue-400 underline text-[10px]">status</button>
+<button type="button" onclick="runCliCommand('skills')" class="hover:text-blue-400 underline text-[10px]">skills</button>
+<button type="button" onclick="runCliCommand('download')" class="hover:text-blue-400 underline text-[10px]">download</button>
+</div>
+</div>
+<div id="cli-output" class="max-h-48 overflow-y-auto space-y-1.5 pr-1 font-mono text-slate-300">
+<div class="text-blue-400">&gt; <span class="text-slate-400">session:</span> <span class="text-white">connected to ap-southeast-3</span></div>
+<div class="text-emerald-400 font-semibold">&gt; Systems nominal. Enter 'help' or click shortcuts above.</div>
+</div>
+<form id="cli-form" class="flex items-center gap-2 pt-2.5 mt-2 border-t border-white/[0.08]">
+<span class="text-blue-400 font-bold">&gt;</span>
+<input id="cli-input" type="text" autocomplete="off" placeholder="type 'help', 'status', 'skills', 'experience', 'download'..." class="w-full bg-transparent border-none text-blue-300 font-mono text-xs focus:ring-0 p-0 outline-none placeholder:text-slate-600">
+<button type="submit" class="text-[10px] bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded font-bold uppercase transition-colors">EXEC</button>
+</form>
+</div>
+<!-- Micro specs line -->
+<div class="pt-6 border-t border-white/[0.06] flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-400">
+<span>Lokasi: Bekasi &amp; Jakarta, Indonesia</span>
+<span>•</span>
+<span>Telepon: +62 878-9948-1932</span>
+<span>•</span>
+<span>SLA Response: &lt; 24 Jam</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- CORPORATE EXECUTIVE FOOTER -->
+<footer class="mt-20 border-t border-white/[0.08] bg-monolith-950 py-12 text-slate-400 text-xs">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold font-display text-xs">
+          A
+        </div>
+<div>
+<span class="text-white font-semibold">Andriansyah</span> — Executive Cloud &amp; Infrastructure Architect
+        </div>
+</div>
+<div class="flex items-center gap-6 font-mono text-[11px] text-slate-400">
+<span>© 2025 All Rights Reserved</span>
+<span>•</span>
+<span class="text-slate-300">Resilient Systems &amp; GitOps Precision</span>
+</div>
+</div>
+</footer>
+
+<!-- Modal Dialog for Certification Details -->
+<div id="cert-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4">
+  <div class="relative w-full max-w-lg bg-monolith-900 border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-5 font-sans">
+    <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+        <h3 id="cert-modal-title" class="text-base sm:text-lg font-bold font-display text-white">
+          CERTIFICATION_NAME
+        </h3>
+      </div>
+      <button id="cert-modal-close" class="text-slate-400 hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+    
+    <div class="text-xs font-mono font-semibold text-blue-400" id="cert-modal-org">ORGANIZATION</div>
+    <p class="text-sm text-slate-300 leading-relaxed font-normal" id="cert-modal-desc">Description of certification.</p>
+    
+    <div class="p-3.5 rounded-xl bg-monolith-950 border border-white/[0.08] text-xs font-mono text-slate-400">
+      <div class="text-emerald-400 font-semibold mb-1 flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-sm">verified</span>
+        <span>VERIFICATION STATUS</span>
+      </div>
+      <div id="cert-modal-meta">CLEARANCE STATUS</div>
+    </div>
+    
+    <div class="flex justify-end pt-2">
+      <button onclick="document.getElementById('cert-modal-close').click()" class="bg-white text-monolith-950 text-xs font-bold px-5 py-2.5 rounded-xl hover:bg-slate-200 transition-colors">
+        Tutup
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Interactive Client Application Logic -->
+<script src="assets/js/monolith.js"></script>
+</body></html>
