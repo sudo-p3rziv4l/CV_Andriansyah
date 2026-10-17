@@ -114,7 +114,7 @@ const I18N = {
       sectionTag: "// TRACK RECORD",
       title: "Professional Career & Field Execution",
       subtitle: "Proven track record of infrastructure leadership, mission-critical systems transformation, and enterprise network bottleneck mitigation.",
-      dikaPeriod: "Jan 2023 — Present",
+      dikaPeriod: "Aug 2025 — Present",
       dikaBullet1: "<strong>End-to-End CI/CD Automation:</strong> Designed and deployed comprehensive CI/CD pipelines with <strong>GitHub Actions</strong>, eliminating manual build overhead, accelerating containerization, multi-tier linting, and automated production cutover.",
       dikaBullet2: "<strong>Containerization & Portability:</strong> Standardized monolithic legacy stacks and microservices into hardened <strong>Docker Containers</strong>, achieving absolute portability across staging and high-traffic clusters.",
       dikaBullet3: "<strong>Kubernetes & GitOps Orchestration:</strong> Provisioned enterprise <strong>Kubernetes</strong> clusters coupled with declarative continuous delivery via <strong>ArgoCD</strong>, guaranteeing zero drift and zero downtime deployments.",
@@ -271,11 +271,11 @@ function initTerminalCLI() {
   • <strong>Observability:</strong> Prometheus Exporters, Grafana Telemetry, Alertmanager, Node-Exporter`,
 
     experience: `<span class="text-blue-300 font-bold">CAREER RECORD:</span>
-  1. <strong class="text-white">PT DIKA</strong> (Jan 2023 – Present) : DevOps Engineer
+  1. <strong class="text-white">PT DIKA</strong> (Aug 2025 – Present) : DevOps Engineer
      [CI/CD Pipelines, Kubernetes, ArgoCD GitOps, Prometheus/Grafana, Proxmox VE, Linux Hardening]
-  2. <strong class="text-white">PT DIKA</strong> (Okt 2024 – Ags 2025) : Network Engineer
+  2. <strong class="text-white">PT DIKA</strong> (Okt 2024 – Aug 2025) : Network Engineer
      [Fortigate Firewall, IPS Policy, VLAN Trunking, Telephony/VoIP Network Architecture]
-  3. <strong class="text-white">SMK Catur Global</strong> (Ags 2019 – Okt 2024) : IT &amp; Networking Instructor
+  3. <strong class="text-white">SMK Catur Global</strong> (Aug 2019 – Okt 2024) : IT &amp; Networking Instructor
      [MikroTik Lab Simulation, Campus LAN/WLAN, Moodle CBT Examination Cluster Deployment]`,
 
     certs: `<span class="text-blue-300 font-bold">VERIFIED CLEARANCES:</span>
