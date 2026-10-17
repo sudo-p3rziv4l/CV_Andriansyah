@@ -2,6 +2,12 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/images/favicon/favicon.ico"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -21,7 +27,7 @@
       ]
     },
     {
-      "source": "/(.*).(jpg|jpeg|png|svg|webp|pdf)",
+      "source": "/(.*).(jpg|jpeg|png|svg|webp|pdf|ico)",
       "headers": [
         {
           "key": "Cache-Control",

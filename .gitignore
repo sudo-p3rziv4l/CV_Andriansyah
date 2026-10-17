@@ -1,0 +1,32 @@
+# OS generated files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.temp/
+tmp/
+*.tmp
+
+# Test and coverage artifacts
+screenshot_preview.png
+mobile_review.png
+bilingual_preview.png
+tablet_certs.png
+w1024_topbar.png
+*.png.bak
