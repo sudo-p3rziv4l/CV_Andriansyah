@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
   vertical-align: middle;
@@ -24,3 +36,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* CV Dropdown Menu Hover & Active Display */
+.dropdown-cv:hover .cv-dropdown-menu,
+.cv-dropdown-menu.menu-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+.dropdown-cv:hover .chevron-icon,
+.dropdown-cv.active .chevron-icon {
+  transform: rotate(180deg);
+}
+
+

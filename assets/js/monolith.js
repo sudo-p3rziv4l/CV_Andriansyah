@@ -292,13 +292,9 @@ function initTerminalCLI() {
   • Location : Bekasi, Jawa Barat, Indonesia (Open for Remote / On-Site)`,
 
     download: () => {
-      const link = document.createElement('a');
-      link.href = 'assets/docs/CV_Andriansyah.pdf';
-      link.download = 'CV_Andriansyah.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      return `<span class="text-emerald-400 font-bold">&gt;&gt; Downloading official dossier: CV_Andriansyah.pdf ... [OK]</span>`;
+      return `<span class="text-blue-300 font-bold">&gt;&gt; SELECT CURRICULUM VITAE DOSSIER:</span><br>` +
+             `  • [1] <a href="assets/docs/CV_Andriansyah_EN.pdf" download="CV_Andriansyah_EN.pdf" class="text-white underline hover:text-blue-400 font-semibold">English Version (CV_Andriansyah_EN.pdf)</a><br>` +
+             `  • [2] <a href="assets/docs/CV_Andriansyah_ID.pdf" download="CV_Andriansyah_ID.pdf" class="text-white underline hover:text-emerald-400 font-semibold">Versi Bahasa Indonesia (CV_Andriansyah_ID.pdf)</a>`;
     }
   };
 
@@ -372,9 +368,12 @@ function initCertDetailsModal() {
     }
   };
 
+  let lastFocusedTrigger = null;
+
   window.showCert = (key) => {
     const d = CERTS[key];
     if (!d) return;
+    lastFocusedTrigger = document.activeElement;
     title.textContent = d.title;
     org.textContent = d.org;
     desc.textContent = d.desc;
@@ -382,12 +381,16 @@ function initCertDetailsModal() {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.classList.add('overflow-hidden');
+    closeBtn.focus();
   };
 
   const hide = () => {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
     document.body.classList.remove('overflow-hidden');
+    if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+      lastFocusedTrigger.focus();
+    }
   };
 
   closeBtn.addEventListener('click', hide);
@@ -421,10 +424,12 @@ function showToast(msg) {
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'monolith-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
     toast.className = 'fixed bottom-6 right-6 z-50 px-4 py-3 rounded-2xl bg-monolith-900/95 border border-white/20 text-white font-mono text-xs shadow-2xl backdrop-blur-xl flex items-center gap-2 transform translate-y-12 opacity-0 transition-all duration-300';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = `<span class="material-symbols-outlined text-base text-blue-400">info</span> <span>${escapeHtml(msg)}</span>`;
+  toast.innerHTML = `<span class="material-symbols-outlined text-base text-blue-400" aria-hidden="true">info</span> <span>${escapeHtml(msg)}</span>`;
   toast.classList.remove('translate-y-12', 'opacity-0');
   toast.classList.add('translate-y-0', 'opacity-100');
 
@@ -446,6 +451,47 @@ function initSmoothScroll() {
     });
   });
 }
+
+// 7. CV Dropdown Controller (Hover & Click Handler)
+window.toggleCvDropdown = (btn) => {
+  const container = btn.closest('.dropdown-cv');
+  if (!container) return;
+  const menu = container.querySelector('.cv-dropdown-menu');
+  if (!menu) return;
+
+  const isCurrentlyOpen = menu.classList.contains('menu-active');
+
+  // Close all open dropdowns first
+  document.querySelectorAll('.cv-dropdown-menu').forEach(m => {
+    m.classList.remove('menu-active');
+  });
+  document.querySelectorAll('.dropdown-cv').forEach(c => {
+    c.classList.remove('active');
+  });
+  document.querySelectorAll('.dropdown-cv button').forEach(b => {
+    b.setAttribute('aria-expanded', 'false');
+  });
+
+  if (!isCurrentlyOpen) {
+    menu.classList.add('menu-active');
+    container.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+};
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown-cv')) {
+    document.querySelectorAll('.cv-dropdown-menu').forEach(m => {
+      m.classList.remove('menu-active');
+    });
+    document.querySelectorAll('.dropdown-cv').forEach(c => {
+      c.classList.remove('active');
+    });
+    document.querySelectorAll('.dropdown-cv button').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+    });
+  }
+});
 
 // Helper: Escape HTML
 function escapeHtml(str) {
