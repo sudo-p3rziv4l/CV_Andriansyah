@@ -51,6 +51,56 @@
   </script>
 </head>
 <body class="bg-monolith-950 text-slate-100 font-sans antialiased selection:bg-accent-blue/30 selection:text-white min-h-screen relative noise-bg overflow-x-hidden">
+<!-- Gatekeeper Security Handshake Splash Screen -->
+<div id="handshake-gate" class="fixed inset-0 z-[100] bg-monolith-950 flex flex-col items-center justify-center p-4 transition-opacity duration-700 font-mono">
+  <!-- Subtle background glow -->
+  <div class="absolute w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="relative w-full max-w-md p-6 sm:p-8 rounded-3xl bg-monolith-900/90 border border-white/10 shadow-2xl backdrop-blur-2xl space-y-6">
+    <!-- Header Badge -->
+    <div class="flex items-center justify-between border-b border-white/[0.08] pb-3 text-xs text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+        <span class="font-bold text-white tracking-wider">GATEKEEPER://SSH</span>
+      </div>
+      <span class="text-[11px] text-slate-500">AP-SOUTHEAST-3</span>
+    </div>
+
+    <!-- Terminal Output -->
+    <div class="space-y-2 text-xs text-slate-300 min-h-[90px]">
+      <div class="flex items-center gap-2 text-blue-400">
+        <span>&gt;</span>
+        <span id="gate-target">initiating carrier connection...</span>
+      </div>
+      <div id="gate-log" class="text-slate-400 text-[11px] leading-relaxed">
+        establishing secure handshake with cluster gateway...
+      </div>
+      <div id="gate-status" class="pt-1 font-bold text-sm tracking-wide text-amber-400 flex items-center gap-2">
+        <span id="gate-spinner" class="inline-block animate-spin text-base">⠋</span>
+        <span id="gate-status-text">VERIFYING PERIMETER CLEARANCE</span>
+      </div>
+    </div>
+
+    <!-- Progress Meter -->
+    <div class="space-y-1.5 pt-2">
+      <div class="flex justify-between items-center text-[10px] text-slate-400">
+        <span id="gate-step">SYSCALL: SYN_SENT</span>
+        <span id="gate-percent" class="font-bold text-blue-400">0%</span>
+      </div>
+      <div class="w-full bg-monolith-950 h-2 rounded-full overflow-hidden p-0.5 border border-white/[0.08]">
+        <div id="gate-progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-indigo-500 rounded-full transition-all duration-150 w-0 shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
+      </div>
+    </div>
+
+    <!-- Bypass direct button -->
+    <div class="flex justify-end pt-1">
+      <button type="button" onclick="bypassGatekeeper()" class="text-[10px] text-slate-500 hover:text-slate-300 underline transition-colors cursor-pointer focus-visible:outline-none">
+        [skip handshake]
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Skip to main content link for keyboard & screen reader accessibility -->
 <a href="#overview" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-xl focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white">
   Lewati ke konten utama

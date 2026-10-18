@@ -162,6 +162,7 @@ const I18N = {
 let currentLang = localStorage.getItem('site_lang') || 'id';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initGatekeeperHandshake();
   initUTCClock();
   initTelemetryFlux();
   initTerminalCLI();
@@ -170,6 +171,101 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   applyLanguage(currentLang);
 });
+
+// Gatekeeper Security Handshake Animation
+function initGatekeeperHandshake() {
+  const gate = document.getElementById('handshake-gate');
+  if (!gate) return;
+
+  // Cek apakah sudah pernah handshake di sesi ini
+  if (sessionStorage.getItem('handshake_granted') === 'true') {
+    gate.style.display = 'none';
+    return;
+  }
+
+  const targetEl = document.getElementById('gate-target');
+  const logEl = document.getElementById('gate-log');
+  const statusEl = document.getElementById('gate-status');
+  const statusText = document.getElementById('gate-status-text');
+  const spinner = document.getElementById('gate-spinner');
+  const stepEl = document.getElementById('gate-step');
+  const percentEl = document.getElementById('gate-percent');
+  const barEl = document.getElementById('gate-progress-bar');
+
+  window.bypassGatekeeper = () => {
+    sessionStorage.setItem('handshake_granted', 'true');
+    gate.classList.add('opacity-0', 'pointer-events-none');
+    setTimeout(() => {
+      gate.style.display = 'none';
+    }, 700);
+  };
+
+  const steps = [
+    {
+      progress: 25,
+      step: 'SYSCALL: SYN_SENT',
+      target: 'connecting to ap-southeast-3.dika.internal...',
+      log: 'handshaking with edge border gateway [10.0.0.1:22871]...'
+    },
+    {
+      progress: 55,
+      step: 'TLS_ECDHE_RSA: VERIFY_CERT',
+      target: 'authenticating ed25519 identity key...',
+      log: 'validating security clearance: ANDRIANSYAH // SRE_CLUSTER_ADMIN...'
+    },
+    {
+      progress: 85,
+      step: 'K8S_GITOPS: IN_SYNC (0 DRIFT)',
+      target: 'loading production telemetry modules...',
+      log: 'cluster nodes nominal: 99.98% SLO verified.'
+    },
+    {
+      progress: 100,
+      step: 'CLEARANCE: 200_OK',
+      target: 'session established: andriansyah@ap-southeast-3',
+      log: 'encryption established: TLSv1.3 // AES-256-GCM'
+    }
+  ];
+
+  let currentStep = 0;
+
+  function runStep() {
+    if (currentStep < steps.length) {
+      const s = steps[currentStep];
+      if (percentEl) percentEl.textContent = `${s.progress}%`;
+      if (stepEl) stepEl.textContent = s.step;
+      if (barEl) barEl.style.width = `${s.progress}%`;
+      if (targetEl) targetEl.textContent = s.target;
+      if (logEl) logEl.textContent = s.log;
+
+      currentStep++;
+      if (currentStep < steps.length) {
+        setTimeout(runStep, 450);
+      } else {
+        // Access Granted Sequence
+        setTimeout(() => {
+          if (spinner) spinner.innerHTML = '✓';
+          if (spinner) spinner.classList.remove('animate-spin');
+          if (statusText) statusText.textContent = 'ACCESS GRANTED';
+          if (statusEl) {
+            statusEl.classList.remove('text-amber-400');
+            statusEl.classList.add('text-emerald-400', 'drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]');
+          }
+          if (barEl) {
+            barEl.classList.remove('from-blue-600', 'to-indigo-500');
+            barEl.classList.add('from-emerald-500', 'to-teal-400', 'shadow-[0_0_15px_rgba(52,211,153,0.8)]');
+          }
+
+          setTimeout(() => {
+            bypassGatekeeper();
+          }, 650);
+        }, 300);
+      }
+    }
+  }
+
+  setTimeout(runStep, 200);
+}
 
 // Switch Language Function
 window.toggleLang = () => {
